@@ -1,32 +1,53 @@
 #include <iostream>
-#include <string>
-using namespace std;
-
-int main()
+using namespace std ;
+int main ()
 {
-    int n,m,z; 
-    string numero="", base="0123456789ABCDEF", X="";
-    cout << "Ingrese el numero ";
-    cin>> n;
-    m=n;
-    z=n;
-    if (n>=1 && n<=255)
-    {
-            while (n>0)
+    float notas=0.0 , mayor=0.0 , menor=5.0 , promedio, suma=0.0 ;
+    int i=0, aprobados=0, desaprobados=0;
+    while (notas!= -1.0 )
+    {   
+        cout <<  "Ingrese las notas: ";
+        cin>> notas;
+        if (notas >= 0.0 && notas <= 5.0 )
+        {                   
+            i++;
+            if (mayor < notas )
             {
-                numero = to_string(n%2)+ numero; 
-                n= n/2;
+                mayor = notas;     
             }
-            while (m>0)
+            if (menor > notas )
             {
-                X= base[m%16] + X;
-                m = m/16;
+                menor = notas;
             }
-            cout<<z<<" En base 2: " <<numero<< endl ;
-            cout<<z <<" En base 16: "<< X << endl;  
+            if (notas >= 3.0)
+            {
+                aprobados++;
+            }
+            else 
+            {
+                desaprobados++;
+            }
+
+            suma = notas + suma;
+
+        }
+        else 
+        {
+            if (notas != -1.0)
+            {
+                cout << "Ingrese un valor valido"<<endl;
+            }
+           
+        }
+        
     }
-    else {
-        cout << "numero invalido"; 
-    }
+    promedio = suma / i ;
+    cout << "Cantidad de notas: "<< i<< endl ;
+    cout << "Promedio del grupo:  "<< promedio << endl; 
+    cout << "Nota maxima: "<< mayor << endl;
+    cout << "Nota minima: "<< menor << endl;
+    cout << "Numero de aprobados: "<< aprobados<< endl;
+    cout << "Numero de desaprobados: "<< desaprobados<< endl;
+    
+
 }
- 
